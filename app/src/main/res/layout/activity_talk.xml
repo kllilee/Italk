@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.likunlin.italk.talk.talk">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_talk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boder"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/AppTheme.Base"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/OverFlowMenuTheme"
+        app:titleTextColor="@color/textColorPrimary">
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/f_btn_voice"
+        android:layout_width="47.5dp"
+        android:layout_height="47.5dp"
+        android:clickable="true"
+        app:backgroundTint="@color/itemtextcoloron"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/recycleView"
+        app:srcCompat="@drawable/voice" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_talk" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/boder"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycleView">
+
+        <ImageButton
+            android:id="@+id/talk_more_icon"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="4"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/more" />
+
+        <EditText
+            android:id="@+id/et_message"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_border"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="Message"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
+
+        <ImageButton
+            android:id="@+id/ib_send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/send" />
+    </LinearLayout>
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>

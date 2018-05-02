@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#cccccc</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColorPrimary">#64b0ce</color>
+    <color name="mymessage">#94a8ad</color>
+    <color name="elsemessage">#e8f2f5</color>
+    <color name="itemtextcoloron">#5bc0be</color>
+    <color name="itemtextcolor">#93A8AC</color>
+    <color name="login_text_color">#93a8ac</color>
+</resources>

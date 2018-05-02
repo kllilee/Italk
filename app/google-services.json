@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1014401564347",
+    "firebase_url": "https://italk-db2d2.firebaseio.com",
+    "project_id": "italk-db2d2",
+    "storage_bucket": "italk-db2d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014401564347:android:6e5bb25de96b957d",
+        "android_client_info": {
+          "package_name": "com.example.likunlin.italk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014401564347-92ro0sulgkd1ebf5hsqpoqdrbk2hn169.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.likunlin.italk",
+            "certificate_hash": "d1a5620b65c49cf7a6d378d10e0503b0ad031af5"
+          }
+        },
+        {
+          "client_id": "1014401564347-rfni736meei0ef3gqsf7aet0k6ip9tdp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiDiEKYOYuuQyUNlaai0-_ZZ9Oap-MBJM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1014401564347-rfni736meei0ef3gqsf7aet0k6ip9tdp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
