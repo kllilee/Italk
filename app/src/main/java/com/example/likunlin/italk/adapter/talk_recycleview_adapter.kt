@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.likunlin.italk.R
+import com.example.likunlin.italk.firebase.user
 import com.example.likunlin.italk.information.*
 class  MyAdapter(val items : ArrayList<message_info>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
     class ViewHolder(view: CardView) : RecyclerView.ViewHolder(view){
@@ -37,7 +38,7 @@ class  MyAdapter(val items : ArrayList<message_info>) : RecyclerView.Adapter<MyA
 
         val objects = items[position] as message_info
 
-        if (objects.name == "Ted") {
+        if (objects.name == user.name) {
             holder.my_name!!.text = "You"
             holder.my_time!!.text = objects.time
 
@@ -53,7 +54,7 @@ class  MyAdapter(val items : ArrayList<message_info>) : RecyclerView.Adapter<MyA
     override fun getItemViewType(position: Int): Int {
         val objects =items[position].name
 
-        if (objects == "Ted"){
+        if (objects == user.name){
             return 0
         }else{
             return 1

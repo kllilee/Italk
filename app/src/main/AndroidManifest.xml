@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="stateHidden|adjustPan">
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            />
         <activity android:name=".login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +23,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".talk.talk" />
+        <activity android:name=".talk.talk"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            />
         <activity android:name=".sign.sign"></activity>
     </application>
 

@@ -30,15 +30,15 @@
         app:backgroundTint="@color/itemtextcoloron"
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="@+id/recycleView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/voice" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycleView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+    <com.example.likunlin.italk.MyView.MyRecycleView
+        android:id="@+id/talk_recycleView"
+        android:layout_width="360dp"
+        android:layout_height="450dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_talk" />
 
@@ -53,8 +53,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycleView">
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
             android:id="@+id/talk_more_icon"
