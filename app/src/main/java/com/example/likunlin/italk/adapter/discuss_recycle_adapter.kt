@@ -46,10 +46,9 @@ class discuss_recycle_adapter(val discuss_item:ArrayList<discuss_info>): Recycle
 
         })
 
+            holder!!.discuss_recycleview_img.setImageResource(discuss_item[position].img_path)
+            holder!!.discuss_recycleview_title!!.text = discuss_item[position].title
 
-
-        val objects = discuss_item[position] as discuss_info
-        holder!!.discuss_recycleview_title!!.text = objects.title
     }
 
 

@@ -41,7 +41,7 @@ class message_group_recycleview_adapter(val message_group_item:ArrayList<message
     }
 
     class viewholder(view: CardView) : RecyclerView.ViewHolder(view){
-        var message_group_img = view.findViewById<ImageView>(R.id.message_group_image)
+        var message_group_img = view.findViewById<ImageView>(R.id.message_else_img)
         var message_group_name = view.findViewById<TextView>(R.id.message_group_view_item)
         var message_group_time = view.findViewById<TextView>(R.id.message_group_time)
         var message_group_message = view.findViewById<TextView>(R.id.message_group_message)

@@ -3,6 +3,8 @@ package com.example.likunlin.italk
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
+import android.support.v7.app.AlertDialog
 import android.util.Log
 
 import android.view.View
@@ -19,11 +21,51 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_login.*
 
-class login : AppCompatActivity() ,Onfirebaselogin_Callback{
-    override fun onComplete(message: String) {
-        if(message == "YES"){
+class login : AppCompatActivity() ,Onfirebaselogin_Callback,shareperference_user_callback{
+
+
+    override fun s_onComplete() {
+        if(user.name == ""){
+            init()
+        }else{
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    override fun s_onFail() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onComplete(message: String,password: String) {
+        if(message == "YES"){
+            val message_dialog = AlertDialog.Builder(this)
+            message_dialog.setMessage("是否紀錄帳號密碼")
+            message_dialog.setPositiveButton("確定",{dialog,whichButton->
+                val preference = PreferenceManager.getDefaultSharedPreferences(this)
+                val editor = preference.edit()
+                editor.putString("login_name",user.name)
+                editor.putString("login_password",password)
+                editor.putString("login_imgpath",user.img_path)
+                editor.putString("login_mail",user.mail)
+                editor.putString("login_check",user.check)
+                editor.commit()
+
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+
+            })
+            message_dialog.setNegativeButton("拒絕",{dialog,whichButton->
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+
+            })
+            val alert = message_dialog.create()
+            alert.show()
+
+
+
+
 
         }else{
             Toast.makeText(this,"資格尚在審核中 請稍候",Toast.LENGTH_SHORT).show()
@@ -39,13 +81,36 @@ class login : AppCompatActivity() ,Onfirebaselogin_Callback{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        init()
+
+        shareperference_get(this)
+
+
+
+
+
+
+    }
+
+    private fun shareperference_get(shareperference: shareperference_user_callback) {
+        val preference = PreferenceManager.getDefaultSharedPreferences(this)
+        user.name = preference.getString("login_name","")
+        user.check = preference.getString("login_check","")
+        user.img_path = preference.getString("login_imgpath","")
+        user.mail = preference.getString("login_mail","")
+        val password = preference.getString("login_password","")
+        if(user.name.isEmpty()){
+            init()
+        }else{
+            shareperference.s_onComplete()
+
+        }
+
+
+
     }
 
     private val tv_signup_click = View.OnClickListener{
-
-        val intent = Intent(this,sign::class.java)
-        startActivity(intent)
+        inter_sign()
 
     }
 
@@ -65,7 +130,7 @@ class login : AppCompatActivity() ,Onfirebaselogin_Callback{
                 if (!Task.isSuccessful) {
                     Toast.makeText(this,"帳號密碼錯誤", Toast.LENGTH_SHORT).show()
                 }else{
-                    firebase_Login(this).start_Login(email)
+                    firebase_Login(this).start_Login(email,password)
                 }
             }
         }
@@ -88,16 +153,24 @@ class login : AppCompatActivity() ,Onfirebaselogin_Callback{
 
 
     }
+
+
+
+    fun inter_sign(){
+        val intent = Intent(this,sign::class.java)
+        startActivity(intent)
+    }
+
 }
 interface Onfirebaselogin_Callback {
-    fun onComplete(message: String)
+    fun onComplete(message: String,password:String)
     fun onFail()
 }
 
 class firebase_Login(private val firebase_login_callback: Onfirebaselogin_Callback) {
-    val Login_result :String=""
 
-    fun start_Login(email:String) {
+
+    fun start_Login(email:String,password: String) {
         var reference_data = FirebaseDatabase.getInstance().getReference("member").orderByChild("mail").equalTo(email)
         reference_data.addValueEventListener(object :ValueEventListener{
             override fun onCancelled(dataSnapshot: DatabaseError?) {
@@ -115,7 +188,7 @@ class firebase_Login(private val firebase_login_callback: Onfirebaselogin_Callba
                         Log.v("firebase",user.check)
                     }
 
-                    firebase_login_callback.onComplete(user.check)
+                    firebase_login_callback.onComplete(user.check,password)
                 }catch (e: InterruptedException){
                     firebase_login_callback.onFail()
 
@@ -126,4 +199,12 @@ class firebase_Login(private val firebase_login_callback: Onfirebaselogin_Callba
         })
     }
 }
+
+interface shareperference_user_callback{
+    fun s_onComplete()
+    fun s_onFail()
+
+}
+
+
 

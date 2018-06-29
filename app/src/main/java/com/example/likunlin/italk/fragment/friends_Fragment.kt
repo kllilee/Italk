@@ -26,13 +26,13 @@ import java.util.ArrayList
 
 
 class friends_Fragment : Fragment() {
-    var friends_items_array: ArrayList<friends_info> = ArrayList()
+
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        friends_items_array.addAll(friends_list().get())
+
 
         setHasOptionsMenu(true)
         return inflater.inflate(R.layout.friends_fragment, container, false)
@@ -42,7 +42,8 @@ class friends_Fragment : Fragment() {
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-
+        var friends_items_array: ArrayList<friends_info> = ArrayList()
+        friends_items_array.addAll(friends_list().get())
         friends_add_recycleview.layoutManager = GridLayoutManager( getActivity(),3, GridLayoutManager.VERTICAL, false)
         friends_add_recycleview.adapter = friends_add_recycleview_adapter(friends_items_array)
 
@@ -72,6 +73,7 @@ class friends_Fragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 
 
 

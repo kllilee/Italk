@@ -33,10 +33,7 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, TabLay
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.v("name", user.name)
-        Log.v("mail", user.mail)
-        Log.v("img_path", user.img_path)
-        Log.v("check", user.check)
+
 
         viewPager = findViewById<View>(R.id.viewPager) as ViewPager
         tabLayout = findViewById<View>(R.id.tabLayout) as TabLayout

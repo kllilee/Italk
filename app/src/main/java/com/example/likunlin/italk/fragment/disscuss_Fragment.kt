@@ -19,19 +19,20 @@ import kotlinx.android.synthetic.main.disscuss_fragment.*
 
 
 class disscuss_Fragment : Fragment() {
-    var discuss_items_array: ArrayList<discuss_info> = ArrayList()
+
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        discuss_items_array.addAll(discuss_list().get())
 
-        Log.v("discuss",discuss_items_array.toString())
+
         return inflater.inflate(R.layout.disscuss_fragment, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        var discuss_items_array: ArrayList<discuss_info> = ArrayList()
+        discuss_items_array.addAll(discuss_list().get())
         discuss_add_recycleview.layoutManager =  LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
         discuss_add_recycleview.adapter = discuss_recycle_adapter(discuss_items_array)
         discuss_add_recycleview.addItemDecoration( MyPaddingDecoration(view!!.context))

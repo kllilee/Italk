@@ -1,9 +1,10 @@
 package com.example.likunlin.italk.information
 
+import com.example.likunlin.italk.R
 import com.google.firebase.database.*
 import java.util.*
 
-class discuss_info(val title:String,val img:String,val chanel :String){
+class discuss_info(val title:String,val img_path:Int,val chanel :String){
 
 }
 
@@ -25,30 +26,7 @@ class discuss_list:ArrayList<discuss_info>() {
 
         })
 
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test1",img="testimg",chanel = "Italk"))
-        discuss_info_1.add(discuss_info(title = "test13",img="testimg",chanel = "Italk"))
+        discuss_info_1.add(discuss_info(title = "Italk",img_path= R.mipmap.disscuss_italk,chanel = "Italk"))
 
 
 

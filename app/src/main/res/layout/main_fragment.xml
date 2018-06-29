@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/message_group_image"
+            android:id="@+id/message_else_img"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:layout_gravity="bottom"
@@ -36,7 +36,7 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/message_group_image">
+            app:layout_constraintTop_toBottomOf="@+id/message_else_img">
 
             <TextView
                 android:layout_width="wrap_content"
