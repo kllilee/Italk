@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import android.widget.Toast
+import com.example.likunlin.italk.Onfirebaselogin_Callback
 import com.example.likunlin.italk.R
 
 import com.example.likunlin.italk.adapter.message_group_recycleview_adapter
@@ -15,7 +16,9 @@ import kotlinx.android.synthetic.main.friends_fragment.*
 import kotlinx.android.synthetic.main.message_fragment.*
 
 
-class message_Fragment : Fragment() {
+class message_Fragment : Fragment(){
+
+
     var message_group_items_array: ArrayList<message_group_info> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +33,8 @@ class message_Fragment : Fragment() {
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+
+
 
         message_group_recycleview.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
         message_group_recycleview.adapter = message_group_recycleview_adapter(message_group_items_array)
@@ -55,3 +60,5 @@ class message_Fragment : Fragment() {
     }
 
 }
+
+

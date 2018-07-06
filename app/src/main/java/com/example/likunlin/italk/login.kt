@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.likunlin.italk.firebase.firebase
+
 import com.example.likunlin.italk.firebase.user
 
 import com.example.likunlin.italk.sign.sign
@@ -26,10 +27,11 @@ class login : AppCompatActivity() ,Onfirebaselogin_Callback,shareperference_user
 
     override fun s_onComplete() {
         if(user.name == ""){
-            init()
+
         }else{
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
@@ -84,6 +86,10 @@ class login : AppCompatActivity() ,Onfirebaselogin_Callback,shareperference_user
 
         shareperference_get(this)
 
+        tv_signup.setOnClickListener(tv_signup_click)
+        btn_login.setOnClickListener(btn_login_click)
+        tv_forgot.setOnClickListener(tv_forgot_click)
+
 
 
 
@@ -99,7 +105,7 @@ class login : AppCompatActivity() ,Onfirebaselogin_Callback,shareperference_user
         user.mail = preference.getString("login_mail","")
         val password = preference.getString("login_password","")
         if(user.name.isEmpty()){
-            init()
+
         }else{
             shareperference.s_onComplete()
 
@@ -145,14 +151,6 @@ class login : AppCompatActivity() ,Onfirebaselogin_Callback,shareperference_user
         startActivity(intent)
     }
 
-    private fun init() {
-        tv_signup.setOnClickListener(tv_signup_click)
-        btn_login.setOnClickListener(btn_login_click)
-        tv_forgot.setOnClickListener(tv_forgot_click)
-
-
-
-    }
 
 
 
@@ -167,12 +165,20 @@ interface Onfirebaselogin_Callback {
     fun onFail()
 }
 
+
+
+interface shareperference_user_callback{
+    fun s_onComplete()
+    fun s_onFail()
+
+}
+
 class firebase_Login(private val firebase_login_callback: Onfirebaselogin_Callback) {
 
 
     fun start_Login(email:String,password: String) {
         var reference_data = FirebaseDatabase.getInstance().getReference("member").orderByChild("mail").equalTo(email)
-        reference_data.addValueEventListener(object :ValueEventListener{
+        reference_data.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(dataSnapshot: DatabaseError?) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
@@ -199,12 +205,4 @@ class firebase_Login(private val firebase_login_callback: Onfirebaselogin_Callba
         })
     }
 }
-
-interface shareperference_user_callback{
-    fun s_onComplete()
-    fun s_onFail()
-
-}
-
-
 

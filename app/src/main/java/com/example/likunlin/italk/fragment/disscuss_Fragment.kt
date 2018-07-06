@@ -37,6 +37,9 @@ class disscuss_Fragment : Fragment() {
         discuss_add_recycleview.adapter = discuss_recycle_adapter(discuss_items_array)
         discuss_add_recycleview.addItemDecoration( MyPaddingDecoration(view!!.context))
 
+        (activity as AppCompatActivity).setSupportActionBar(discuss_toolbar)
+        discuss_toolbar.setTitle("討論區")
+
 
         super.onViewCreated(view, savedInstanceState)
     }

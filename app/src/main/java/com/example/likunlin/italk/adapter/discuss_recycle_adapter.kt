@@ -39,7 +39,7 @@ class discuss_recycle_adapter(val discuss_item:ArrayList<discuss_info>): Recycle
             override fun onClick(view: View?) {
 
                 val intent = Intent(view!!.context, talk::class.java)
-                intent.putExtra("position",position.toString())
+                intent.putExtra("chanel","Italk")
                 view.context.startActivity(intent)
 
             }

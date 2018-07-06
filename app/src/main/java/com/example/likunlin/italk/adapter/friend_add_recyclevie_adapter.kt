@@ -1,21 +1,15 @@
 package com.example.likunlin.italk.adapter
 
-
-import android.content.Intent
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ListView
 import android.widget.TextView
 import com.example.likunlin.italk.R
 import com.example.likunlin.italk.information.friends_info
-import com.example.likunlin.italk.information.message_info
-import com.example.likunlin.italk.talk.talk
 import java.util.ArrayList
-
 
 class friends_add_recycleview_adapter(val friends_item:ArrayList<friends_info>):RecyclerView.Adapter<friends_add_recycleview_adapter.viewholder>(){
 
